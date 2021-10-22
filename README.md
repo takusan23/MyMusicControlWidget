@@ -25,4 +25,6 @@ APKも一応置いておきます。
 https://github.com/takusan23/MyMusicControlWidget/releases
 
 # 仕組み
+自作音楽アプリが動かないなどの場合も読んでみてください。どの値を表示しているか書いています。
+
 DEVELOPER_GUIDE.md に書くと思う。
