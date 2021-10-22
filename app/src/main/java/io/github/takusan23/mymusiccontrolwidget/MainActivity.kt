@@ -1,22 +1,22 @@
 package io.github.takusan23.mymusiccontrolwidget
 
-import android.content.ComponentName
-import android.content.Context
 import android.content.Intent
-import android.media.MediaMetadata
-import android.media.session.MediaController
-import android.media.session.MediaSessionManager
-import android.media.session.PlaybackState
-import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import io.github.takusan23.mymusiccontrolwidget.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    private val viewBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(viewBinding.root)
+
+        viewBinding.activityMainPermissionButton.setOnClickListener {
+            val intent = Intent("android.settings.ACTION_NOTIFICATION_LISTENER_SETTINGS")
+            startActivity(intent)
+        }
 
     }
 

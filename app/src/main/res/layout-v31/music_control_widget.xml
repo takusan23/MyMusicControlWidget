@@ -47,7 +47,7 @@
                         android:layout_weight="1"
                         android:maxLines="2"
                         android:text="Title"
-                        android:textColor="@color/orange_900"
+                        android:textColor="@android:color/system_accent1_900"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -58,7 +58,7 @@
                         android:layout_weight="1"
                         android:maxLines="1"
                         android:text="Album"
-                        android:textColor="@color/orange_900"
+                        android:textColor="@android:color/system_accent1_900"
                         android:textSize="12sp" />
 
                     <TextView
@@ -68,7 +68,7 @@
                         android:layout_weight="1"
                         android:maxLines="1"
                         android:text="Artist"
-                        android:textColor="@color/orange_900"
+                        android:textColor="@android:color/system_accent1_900"
                         android:textSize="12sp" />
                 </LinearLayout>
 
@@ -82,7 +82,6 @@
                 android:background="@drawable/widget_sub_background" />
 
         </LinearLayout>
-
 
     </FrameLayout>
 
@@ -108,8 +107,7 @@
             android:layout_marginEnd="5dp"
             android:background="@drawable/widget_rounded_button_background"
             android:clickable="true"
-            android:contentDescription="update"
-            android:drawableTint="@color/orange_100"
+            android:drawableTint="@android:color/system_accent1_100"
             android:elevation="0dp"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -134,8 +132,7 @@
             android:layout_marginEnd="5dp"
             android:background="@drawable/widget_rounded_button_background"
             android:clickable="true"
-            android:contentDescription="update"
-            android:drawableTint="@color/orange_100"
+            android:drawableTint="@android:color/system_accent1_100"
             android:elevation="0dp"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"
@@ -160,8 +157,7 @@
             android:layout_marginEnd="5dp"
             android:background="@drawable/widget_rounded_button_background"
             android:clickable="true"
-            android:contentDescription="update"
-            android:drawableTint="@color/orange_100"
+            android:drawableTint="@android:color/system_accent1_100"
             android:elevation="0dp"
             android:focusable="true"
             android:foreground="?android:attr/selectableItemBackground"

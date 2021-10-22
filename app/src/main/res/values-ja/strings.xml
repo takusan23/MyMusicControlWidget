@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyMusicControlWidget</string>
+    <string name="app_widget_description">音楽プレイヤーにダイナミックカラー対応ウイジェットを追加します</string>
+    <string name="app_description">音楽情報の読み取り、プレイヤーの操作には、通知へのアクセス権限が必要です。 上記の目的以外では利用しません。</string>
+    <string name="permission_request">通知へのアクセス権限設定画面へ</string>
+</resources>
