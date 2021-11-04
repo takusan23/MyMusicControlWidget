@@ -44,13 +44,14 @@ object UpdateWidgetTool {
 
             // アプリ起動。なぜかMediaController#sessionActivityが動かないアプリがあるので
             val launchIntent = context.packageManager.getLaunchIntentForPackage(mediaController.packageName)
-            val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                PendingIntent.getActivity(context, 100, launchIntent, PendingIntent.FLAG_IMMUTABLE)
-            } else {
-                PendingIntent.getActivity(context, 100, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+            if (launchIntent != null) {
+                val pendingIntent = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    PendingIntent.getActivity(context, 100, launchIntent, PendingIntent.FLAG_IMMUTABLE)
+                } else {
+                    PendingIntent.getActivity(context, 100, launchIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+                }
+                setOnClickPendingIntent(R.id.widget_root, pendingIntent)
             }
-            setOnClickPendingIntent(R.id.widget_root, pendingIntent)
-
             // ブロードキャスト送信
             val playPendingIntent = createPendingIntent(context, 1, "pause")
             val nextPendingIntent = createPendingIntent(context, 2, "next")

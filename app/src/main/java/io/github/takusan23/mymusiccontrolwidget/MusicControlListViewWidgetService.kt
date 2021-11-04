@@ -45,27 +45,30 @@ class MusicControlListViewWidgetService : RemoteViewsService() {
 
         // ListViewの各View
         override fun getViewAt(p0: Int): RemoteViews {
-            val queueItem = queueList[p0]
-            val views = RemoteViews(applicationContext.packageName, R.layout.widget_list_item_layout).apply {
-                setTextViewText(R.id.widget_list_item_title, queueItem.description.title)
-                setTextViewText(R.id.widget_list_item_sub_title, queueItem.description.subtitle)
-                // いま再生しているのがどこなのか
-                val currentPos = queueList.indexOfFirst { it.description.title == MediaControlTool.getMediaController(this@MusicControlListViewWidgetService)?.metadata?.getString(MediaMetadata.METADATA_KEY_TITLE) }
-                // 再生中なら色変える
-                if (currentPos == p0) {
-                    setViewVisibility(R.id.widget_list_item_image, View.VISIBLE)
-                } else {
-                    setViewVisibility(R.id.widget_list_item_image, View.GONE)
+            val remoteView = RemoteViews(applicationContext.packageName, R.layout.widget_list_item_layout)
+            if (queueList.size > p0) {
+                val queueItem = queueList[p0]
+                remoteView.apply {
+                    setTextViewText(R.id.widget_list_item_title, queueItem.description.title)
+                    setTextViewText(R.id.widget_list_item_sub_title, queueItem.description.subtitle)
+                    // いま再生しているのがどこなのか
+                    val currentPos = queueList.indexOfFirst { it.description.title == MediaControlTool.getMediaController(this@MusicControlListViewWidgetService)?.metadata?.getString(MediaMetadata.METADATA_KEY_TITLE) }
+                    // 再生中なら色変える
+                    if (currentPos == p0) {
+                        setViewVisibility(R.id.widget_list_item_image, View.VISIBLE)
+                    } else {
+                        setViewVisibility(R.id.widget_list_item_image, View.GONE)
+                    }
+                    // 押したら移動
+                    // 引いてPendingIntentに飛ばす
+                    val intent = Intent().apply {
+                        putExtra("control", "select")
+                        putExtra("select", p0 - currentPos)
+                    }
+                    setOnClickFillInIntent(R.id.widget_list_item_root, intent)
                 }
-                // 押したら移動
-                // 引いてPendingIntentに飛ばす
-                val intent = Intent().apply {
-                    putExtra("control", "select")
-                    putExtra("select", p0 - currentPos)
-                }
-                setOnClickFillInIntent(R.id.widget_list_item_root, intent)
             }
-            return views
+            return remoteView
         }
 
         override fun getCount(): Int {
