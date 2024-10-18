@@ -63,7 +63,8 @@ class MusicControlListViewWidgetService : RemoteViewsService() {
                     // 引いてPendingIntentに飛ばす
                     val intent = Intent().apply {
                         putExtra("control", "select")
-                        putExtra("select", p0 - currentPos)
+                        putExtra("index", p0)
+                        putExtra("prev_next_count", p0 - currentPos)
                     }
                     setOnClickFillInIntent(R.id.widget_list_item_root, intent)
                 }

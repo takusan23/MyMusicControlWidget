@@ -66,9 +66,7 @@ object UpdateWidgetTool {
             // ListView更新
             val listViewClickPendingIntent = createPendingIntent(context, 10, "select", true)
             setPendingIntentTemplate(R.id.widget_listview, listViewClickPendingIntent)
-
         }
-
 
         // 更新
         val componentName = ComponentName(context, MusicControlWidget::class.java)
@@ -79,11 +77,9 @@ object UpdateWidgetTool {
             // ListView更新
             manager.notifyAppWidgetViewDataChanged(id, R.id.widget_listview)
         }
-
     }
 
-
-    fun createPendingIntent(context: Context, requestCode: Int, control: String, isMutable: Boolean = false): PendingIntent? {
+    private fun createPendingIntent(context: Context, requestCode: Int, control: String, isMutable: Boolean = false): PendingIntent? {
         val intent = Intent(context, MusicControlWidget::class.java).apply {
             putExtra("control", control)
         }
