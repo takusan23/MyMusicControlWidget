@@ -6,11 +6,9 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.media.MediaMetadata
-import android.media.session.MediaSessionManager
 import android.media.session.PlaybackState
 import android.os.Build
 import android.widget.RemoteViews
-import android.widget.RemoteViewsService
 
 object UpdateWidgetTool {
 
