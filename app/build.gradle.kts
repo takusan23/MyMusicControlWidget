@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "io.github.takusan23.mymusiccontrolwidget"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "io.github.takusan23.mymusiccontrolwidget"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 5
         versionName = "1.2.0"
 
